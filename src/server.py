@@ -51,7 +51,7 @@ def get_points(id: str):
     """
     
     points_id = receipts_data.get(id)
-    print(points_id,id)
+
     validation_points_id_result = is_receipt_id_valid(id)
     if not validation_points_id_result.is_valid or receipts_data.get(id) is None: 
         return jsonify(error="No receipt found for that id", message=validation_points_id_result.message), 404

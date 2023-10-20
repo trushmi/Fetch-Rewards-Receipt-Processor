@@ -1,6 +1,7 @@
 # Fetch Rewards Receipt Processor
 
-Fetch Rewards is a popular consumer-engagement platform in the United States with over 17 million active users. The platform allows users to submit digital or scan printed receipts to earn points, which can later be redeemed for free gift cards or other prizes and rewards. This project aims to develop a web service in alignment with the 'Receipt Processor' task outlined by Fetch Rewards. The service is designed to meet the requirements of the provided API documentation, facilitating the processing of receipts and the calculation of reward points. The original repository for the task can be found [here] (https://github.com/fetch-rewards/receipt-processor-challenge).
+Fetch Rewards is a popular consumer-engagement platform in the United States with over 17 million active users. The platform allows users to submit digital or scan printed receipts to earn points, which can later be redeemed for free gift cards or other prizes and rewards. This project aims to develop a web service in alignment with the 'Receipt Processor' task outlined by Fetch Rewards. The service is designed to meet the requirements of the provided API documentation, facilitating the processing of receipts and the calculation of reward points. The original repository for the task can be found
+[here](https://github.com/fetch-rewards/receipt-processor-challenge)
 
 ## API Specification
 
@@ -37,22 +38,23 @@ The points are calculated based on the following rules:
 
 ## Structure
 
-src folder
-\_\_ \- **server.py**: This file establishes a Flask web server and defines two routes to process receipts and retrieve points associated with a receipt. It imports necessary functions from utils.py and validations.py to calculate points based on receipt data and validate receipt structures, respectively. The file contains main functionality to receive POST requests at /receipts/process to process new receipts, and GET requests at /receipts/<id>/points to retrieve points associated with a given receipt ID.
+- src folder:
 
-    - **validations.py** : This file contains functions to validate the receipt structure and its content, ensuring that the data provided adheres to specified conditions. For example, it checks the type and format of the retailer name, purchase date and time, total amount, and item structure in the receipt. It also defines a ValidationResult class to encapsulate the result of a validation check.
+**server.py**: This file establishes a Flask web server and defines two routes to process receipts and retrieve points associated with a receipt. It imports necessary functions from utils.py and validations.py to calculate points based on receipt data and validate receipt structures, respectively. The file contains main functionality to receive POST requests at /receipts/process to process new receipts, and GET requests at /receipts/<id>/points to retrieve points associated with a given receipt ID.
 
-    - **utils.py**: This file contains a collection of functions to calculate points based on different criteria provided in a receipt. Each function takes a receipt dictionary as input and returns points based on certain conditions like the retailer's name, purchase date and time, total amount, and item descriptions among others. The file also contains a main function get_total_receipt_points which aggregates points from all the criteria.
+**validations.py** : This file contains functions to validate the receipt structure and its content, ensuring that the data provided adheres to specified conditions. For example, it checks the type and format of the retailer name, purchase date and time, total amount, and item structure in the receipt. It also defines a ValidationResult class to encapsulate the result of a validation check.
 
-    - **test_utils.py**: This file includes unit tests for the functions defined in utils.py. It uses the unittest framework to define test cases ensuring that the point calculation functions work as expected.
+**utils.py**: This file contains a collection of functions to calculate points based on different criteria provided in a receipt. Each function takes a receipt dictionary as input and returns points based on certain conditions like the retailer's name, purchase date and time, total amount, and item descriptions among others. The file also contains a main function get_total_receipt_points which aggregates points from all the criteria.
 
-- Dockerfile: This file defines the setup for a Docker container to host the Flask application. It specifies a base image of Python 3.8, sets the working directory in the container to /code, copies the requirements.txt file and installs the dependencies listed in it. It then copies the content of the local src directory to the working directory in the container and sets the command to run the server script server.py on container startup.
+**test_utils.py**: This file includes unit tests for the functions defined in utils.py. It uses the unittest framework to define test cases ensuring that the point calculation functions work as expected.
 
-- requirements.txt: This file lists all the necessary Python packages and their versions required to run the Flask application.
+- **Dockerfile**: This file defines the setup for a Docker container to host the Flask application. It specifies a base image of Python 3.8, sets the working directory in the container to /code, copies the requirements.txt file and installs the dependencies listed in it. It then copies the content of the local src directory to the working directory in the container and sets the command to run the server script server.py on container startup.
+
+- **requirements.txt**: This file lists all the necessary Python packages and their versions required to run the Flask application.
 
 ## Setup and Running Instructions
 
-1.Prerequisites:
+1. Prerequisites:
 
 - Ensure that you have Docker installed on your machine.
 
@@ -62,30 +64,33 @@ src folder
 - Run the following command to build the Docker image:
 
 ```
+
 docker build -t my-receipts-app .
 
 ```
 
-3.Run Docker Container:
+3. Run Docker Container:
 
 - Once the image is built, run the following command to start the container:
 
 ```
+
 docker run -d -p 5000:5000 my-receipts-app
 
 ```
 
-4.Accessing the Application:
+4. Accessing the Application:
 
 - The application will now be running in a Docker container and is accessible at http://localhost:5000.
 
-You can now use the defined routes to process receipts and retrieve points.
+- You can now use the defined routes to process receipts and retrieve points.
 
 5. Stop and Remove Docker Container:
 
 - To stop the running container, first find the container ID with the following command:
 
 ```
+
 docker ps
 
 ```
@@ -93,12 +98,14 @@ docker ps
 Then stop the container with:
 
 ```
+
 docker stop <container-id>
 
 ```
 
-6.Viewing Logs:
-To view the logs for the running container, use the following command:
+6. Viewing Logs:
+
+- To view the logs for the running container, use the following command:
 
 ```
 docker logs <container-id>
@@ -114,17 +121,16 @@ docker ps
 
 ```
 
-- Run Tests:
-
-Use the docker exec command to run the tests in the specified container:
+- Use the docker exec command to run the tests in the specified container:
 
 ```
 
 docker exec -it <container-id> python -m unittest test_utils.py
+
 ```
 
 ## About Author
 
 My name is Iryna. I am a software engineer with a background in the media industry, leadership, and communications. I recently graduated from the Software Engineering Program at Hackbright Academy, where I honed my skills in full-stack development and fundamental computer science concepts.
 
-My technical expertise lies in object-oriented programming languages, particularly in Python. Additionally, I am well-versed in JavaScript, HTML, CSS, and the React framework, enabling me to create responsive and client-oriented user interfaces. [LinkedIn](https://www.linkedin.com/in/trushmi/)
+My technical expertise lies in object-oriented programming languages, particularly in Python. Additionally, I am well-versed in JavaScript, HTML, CSS, and the React framework, enabling me to create responsive and client-oriented user interfaces. My [LinkedIn](https://www.linkedin.com/in/trushmi/)
