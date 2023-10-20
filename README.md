@@ -34,10 +34,14 @@ The points are calculated based on the following rules:
 
 ## Tech Stack
 
-- Backend: Python, Flask
-- Containerization: Docker
+- **Backend**: Python, Flask
+- **Containerization**: Docker
 
 ## Structure
+
+- **requirements.txt**: lists all the necessary Python packages and their versions required to run the Flask application.
+
+- **Dockerfile**: defines the setup for a Docker container to host the Flask application.
 
 - **src folder**:
 
@@ -48,10 +52,6 @@ The points are calculated based on the following rules:
   **utils.py**: contains a collection of functions to calculate points based on different criteria provided in a receipt. Each function takes a receipt dictionary as input and returns points based on certain conditions like the retailer's name, purchase date and time, total amount, and item descriptions among others. The file also contains a main function get_total_receipt_points which aggregates points from all the criteria.
 
   **test_utils.py**: includes unit tests for the functions defined in utils.py. It uses the unittest framework to define test cases ensuring that the point calculation functions work as expected.
-
-  - **Dockerfile**: defines the setup for a Docker container to host the Flask application.
-
-- **requirements.txt**: lists all the necessary Python packages and their versions required to run the Flask application.
 
 ## Setup and Running Instructions
 
@@ -75,9 +75,7 @@ docker build -t my-receipts-app .
 - Once the image is built, run the following command to start the container:
 
 ```
-
 docker run -d -p 5000:5000 my-receipts-app
-
 ```
 
 4. Accessing the Application:
