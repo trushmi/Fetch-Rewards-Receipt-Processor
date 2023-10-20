@@ -1,6 +1,8 @@
 # Fetch Rewards Receipt Processor
 
-Fetch Rewards is a popular consumer-engagement platform in the United States with over 17 million active users. The platform allows users to submit digital or scan printed receipts to earn points, which can later be redeemed for free gift cards or other prizes and rewards. This project aims to develop a web service in alignment with the 'Receipt Processor' task outlined by Fetch Rewards. The service is designed to meet the requirements of the provided API documentation, facilitating the processing of receipts and the calculation of reward points. The original repository for the task can be found
+Fetch Rewards is a popular consumer-engagement platform in the United States with over 17 million active users. The platform allows users to submit digital or scan printed receipts to earn points, which can later be redeemed for free gift cards or other prizes and rewards.
+
+This project aims to develop a web service in alignment with the 'Receipt Processor' task outlined by Fetch Rewards. The service is designed to meet the requirements of the provided API documentation, facilitating the processing of receipts and the calculation of reward points. The original repository for the task can be found
 [here](https://github.com/fetch-rewards/receipt-processor-challenge)
 
 ## API Specification
@@ -30,33 +32,32 @@ The points are calculated based on the following rules:
 1. 6 points if the day in the purchase date is odd.
 1. 10 points if the time of purchase is after 2:00pm and before 4:00pm.
 
-## Technologies
+## Tech Stack
 
-- Python
-- Flask
-- Docker
+- Backend: Python, Flask
+- Containerization: Docker
 
 ## Structure
 
-- src folder:
+- **src folder**:
 
-**server.py**: This file establishes a Flask web server and defines two routes to process receipts and retrieve points associated with a receipt. It imports necessary functions from utils.py and validations.py to calculate points based on receipt data and validate receipt structures, respectively. The file contains main functionality to receive POST requests at /receipts/process to process new receipts, and GET requests at /receipts/<id>/points to retrieve points associated with a given receipt ID.
+  **server.py**: establishes a Flask web server and defines two routes to process receipts and retrieve points associated with a receipt. It imports necessary functions from utils.py and validations.py to calculate points based on receipt data and validate receipt structures, respectively. The file contains main functionality to receive POST requests at /receipts/process to process new receipts, and GET requests at /receipts/{id}/points to retrieve points associated with a given receipt ID.
 
-**validations.py** : This file contains functions to validate the receipt structure and its content, ensuring that the data provided adheres to specified conditions. For example, it checks the type and format of the retailer name, purchase date and time, total amount, and item structure in the receipt. It also defines a ValidationResult class to encapsulate the result of a validation check.
+  **validations.py** : contains functions to validate the receipt structure and its content, ensuring that the data provided adheres to specified conditions. For example, it checks the type and format of the retailer name, purchase date and time, total amount, and item structure in the receipt. It also defines a ValidationResult class to encapsulate the result of a validation check.
 
-**utils.py**: This file contains a collection of functions to calculate points based on different criteria provided in a receipt. Each function takes a receipt dictionary as input and returns points based on certain conditions like the retailer's name, purchase date and time, total amount, and item descriptions among others. The file also contains a main function get_total_receipt_points which aggregates points from all the criteria.
+  **utils.py**: contains a collection of functions to calculate points based on different criteria provided in a receipt. Each function takes a receipt dictionary as input and returns points based on certain conditions like the retailer's name, purchase date and time, total amount, and item descriptions among others. The file also contains a main function get_total_receipt_points which aggregates points from all the criteria.
 
-**test_utils.py**: This file includes unit tests for the functions defined in utils.py. It uses the unittest framework to define test cases ensuring that the point calculation functions work as expected.
+  **test_utils.py**: includes unit tests for the functions defined in utils.py. It uses the unittest framework to define test cases ensuring that the point calculation functions work as expected.
 
-- **Dockerfile**: This file defines the setup for a Docker container to host the Flask application. It specifies a base image of Python 3.8, sets the working directory in the container to /code, copies the requirements.txt file and installs the dependencies listed in it. It then copies the content of the local src directory to the working directory in the container and sets the command to run the server script server.py on container startup.
+  - **Dockerfile**: defines the setup for a Docker container to host the Flask application.
 
-- **requirements.txt**: This file lists all the necessary Python packages and their versions required to run the Flask application.
+- **requirements.txt**: lists all the necessary Python packages and their versions required to run the Flask application.
 
 ## Setup and Running Instructions
 
 1. Prerequisites:
 
-- Ensure that you have Docker installed on your machine.
+- Ensure that you have [Docker](https://www.docker.com/) installed on your machine.
 
   2.Build Docker Image:
 
