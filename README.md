@@ -127,6 +127,11 @@ docker ps
 docker exec -it <container-id> python -m unittest test_utils.py
 
 ```
+## Demo
+
+Example of Endpoints: Get Points and Process Receipts:
+
+![github](https://github.com/trushmi/Fetch-Rewards-Receipt-Processor/assets/88466266/c0e5e6e1-ec58-4d51-896e-610ed5692c02)
 
 ## About Author
 
