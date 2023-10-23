@@ -14,11 +14,22 @@ Endpoint: Process Receipts
 - Payload: Receipt JSON
 - Response: JSON containing an id for the receipt.
 
+Example Response:
+```
+{ "id": "7fb1377b-b223-49d9-a31a-5a02701dd310" }
+```
+
 Endpoint: Get Points
 
 - Path: /receipts/{id}/points
 - Method: GET
 - Response: A JSON object containing the number of points awarded.
+
+
+Example Response:
+```
+{ "points": 32 }
+```
 
 ## Rules for getting points
 
@@ -31,6 +42,38 @@ The points are calculated based on the following rules:
 1. If the trimmed length of the item description is a multiple of 3, multiply the price by 0.2 and round up to the nearest integer. The result is the number of points earned.
 1. 6 points if the day in the purchase date is odd.
 1. 10 points if the time of purchase is after 2:00pm and before 4:00pm.
+
+## Example
+```
+{
+  "retailer": "Target",
+  "purchaseDate": "2022-01-01",
+  "purchaseTime": "13:01",
+  "items": [
+    {
+      "shortDescription": "Mountain Dew 12PK",
+      "price": "6.49"
+    },{
+      "shortDescription": "Emils Cheese Pizza",
+      "price": "12.25"
+    },{
+      "shortDescription": "Knorr Creamy Chicken",
+      "price": "1.26"
+    },{
+      "shortDescription": "Doritos Nacho Cheese",
+      "price": "3.35"
+    },{
+      "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+      "price": "12.00"
+    }
+  ],
+  "total": "35.35"
+}
+```
+
+```
+Expected result: 28 points
+```
 
 ## Tech Stack
 
@@ -119,9 +162,9 @@ docker ps
 docker exec -it <container-id> python -m unittest test_utils.py
 ```
 ## Demo
-You can use Postman to check and try how endpoints work. Postman is a popular API testing and development tool that allows you to send HTTP requests to endpoints and receive responses.
+You can use [Postman](https://www.postman.com/) to check and try how endpoints work. Postman is a popular API testing and development tool that allows you to send HTTP requests to endpoints and receive responses.
 
-Example of Endpoints: Get Points and Process Receipts:
+Example of Endpoints: Get Points and Process Receipts with Postman:
 
 ![github](https://github.com/trushmi/Fetch-Rewards-Receipt-Processor/assets/88466266/c0e5e6e1-ec58-4d51-896e-610ed5692c02)
 
