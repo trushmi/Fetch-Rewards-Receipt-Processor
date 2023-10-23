@@ -59,15 +59,13 @@ The points are calculated based on the following rules:
 
 - Ensure that you have [Docker](https://www.docker.com/) installed on your machine.
 
-  2.Build Docker Image:
+2.Build Docker Image:
 
 - Navigate to the project directory where the Dockerfile and requirements.txt are located.
 - Run the following command to build the Docker image:
 
 ```
-
 docker build -t my-receipts-app .
-
 ```
 
 3. Run Docker Container:
@@ -75,12 +73,12 @@ docker build -t my-receipts-app .
 - Once the image is built, run the following command to start the container:
 
 ```
-docker run -d -p 5000:5000 my-receipts-app
+docker run -d -p 8080:5000 my-receipts-app
 ```
 
 4. Accessing the Application:
 
-- The application will now be running in a Docker container and is accessible at http://localhost:5000.
+- The application will now be running in a Docker container and is accessible at http://localhost:8080.
 
 - You can now use the defined routes to process receipts and retrieve points.
 
@@ -89,17 +87,13 @@ docker run -d -p 5000:5000 my-receipts-app
 - To stop the running container, first find the container ID with the following command:
 
 ```
-
 docker ps
-
 ```
 
 Then stop the container with:
 
 ```
-
 docker stop <container-id>
-
 ```
 
 6. Viewing Logs:
@@ -117,17 +111,15 @@ docker logs <container-id>
 
 ```
 docker ps
-
 ```
 
 - Use the docker exec command to run the tests in the specified container:
 
 ```
-
 docker exec -it <container-id> python -m unittest test_utils.py
-
 ```
 ## Demo
+You can use Postman to check and try how endpoints work. Postman is a popular API testing and development tool that allows you to send HTTP requests to endpoints and receive responses.
 
 Example of Endpoints: Get Points and Process Receipts:
 
