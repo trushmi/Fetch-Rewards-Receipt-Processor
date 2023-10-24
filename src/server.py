@@ -2,8 +2,6 @@ from flask import Flask, request, jsonify
 import uuid
 from utils import get_total_receipt_points
 from validations import validate_receipt
-from validations import is_receipt_id_valid
-from validations import ValidationResult
 
 server = Flask(__name__)
 
@@ -50,12 +48,11 @@ def get_points(id: str):
         ID or an error message along with a corresponding HTTP status code (either 200 or 404).
     """
     
-    points_id = receipts_data.get(id)
+    points = receipts_data.get(id)
 
-    validation_points_id_result = is_receipt_id_valid(id)
-    if not validation_points_id_result.is_valid or receipts_data.get(id) is None: 
-        return jsonify(error="No receipt found for that id", message=validation_points_id_result.message), 404
-    return jsonify(points=points_id)
+    if points is None: 
+        return jsonify(error="No receipt found for that id"), 404
+    return jsonify(points=points)
 
 
 if __name__ == "__main__":

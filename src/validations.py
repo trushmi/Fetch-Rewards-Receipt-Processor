@@ -106,20 +106,3 @@ def is_all_items_in_receipt_valid (items):
     return True
 
 
-def is_receipt_id_valid (id: str):
-    """
-    Validate the structure and content of an id dictionary for a receipt.
-    
-    Parameters:
-    - id (str): The id str to be validated.
-    
-    Returns:
-    - bool: True if the id str is valid according to the specified conditions, False otherwise.
-    """
-    if id is None:
-        return ValidationResult(False, "id is not present")
-    if not isinstance(id,str):
-        return ValidationResult(False, "id has invalid type")
-    if not is_pattern_valid(r"^\S+$", id):
-        return ValidationResult(False, "id has invalid pattern")
-    return ValidationResult(True)
