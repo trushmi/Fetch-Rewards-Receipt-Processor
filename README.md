@@ -1,5 +1,18 @@
 # Fetch Rewards Receipt Processor
 
+## In this ReadMe:
+
+- [About this project](#about-this-project)
+- [API Specification](#api-specification)
+- [Rules for getting points](#rules-for-getting-points)
+- [Tech Stack](#tech-stack)
+- [Structure](#structure)
+- [Setup and running instructions](#setup-and-running-instructions)
+- [Demo](#demo)
+- [About Author](#about-author)
+
+# About this project 
+
 Fetch Rewards is a popular consumer-engagement platform in the United States with over 17 million active users. The platform allows users to submit digital or scan printed receipts to earn points, which can later be redeemed for free gift cards or other prizes and rewards.
 
 This project aims to develop a web service in alignment with the 'Receipt Processor' task outlined by Fetch Rewards. The service is designed to meet the requirements of the provided API documentation, facilitating the processing of receipts and the calculation of reward points. The original repository for the task can be found
@@ -96,7 +109,7 @@ Expected result: 28 points
 
   **test_utils.py**: includes unit tests for the functions defined in utils.py. It uses the unittest framework to define test cases ensuring that the point calculation functions work as expected.
 
-## Setup and Running Instructions
+## Setup and running instructions
 
 1. Prerequisites:
 
@@ -172,4 +185,4 @@ Example of Endpoints: Get Points and Process Receipts with Postman:
 
 My name is Iryna. I am a software engineer with a background in the media industry, leadership, and communications. I recently graduated from the Software Engineering Program at Hackbright Academy, where I honed my skills in full-stack development and fundamental computer science concepts.
 
-My technical expertise lies in object-oriented programming languages, particularly in Python. Additionally, I am well-versed in JavaScript, HTML, CSS, and the React framework, enabling me to create responsive and client-oriented user interfaces. My [LinkedIn](https://www.linkedin.com/in/trushmi/)
+My technical expertise lies in object-oriented programming languages, particularly in Python. Additionally, I work with JavaScript, HTML, CSS, and the React framework to create responsive and client-oriented user interfaces. My [LinkedIn](https://www.linkedin.com/in/trushmi/)
