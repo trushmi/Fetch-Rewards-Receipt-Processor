@@ -6,6 +6,7 @@
 - [API Specification](#api-specification)
 - [Rules for getting points](#rules-for-getting-points)
 - [Tech Stack](#tech-stack)
+- [Code snippets](#code-snippets)
 - [Structure](#structure)
 - [Setup and running instructions](#setup-and-running-instructions)
 - [Demo](#demo)
@@ -92,6 +93,24 @@ Expected result: 28 points
 
 - **Backend**: Python, Flask
 - **Containerization**: Docker
+
+
+## Code snippets:
+
+#### POST request API in the `server.py` file:
+![This screenshot shows the implementation of a POST request API in the `server.py` file](https://github.com/user-attachments/assets/6290c834-3f0b-4180-bf3b-033afc625a31)
+
+
+#### Function to check if all items in the Receipt are valid from `validations.py` file:
+![This screenshot shows a function from the `utils.py` file that checks if all items in a receipt are valid.](https://github.com/user-attachments/assets/6498cfb0-89c8-48eb-b818-b4c9290dffa8)
+
+
+#### Helper function to calculate points for a purchase hour:
+![This screenshot shows a helper function that calculates points based on the purchase hour.](https://github.com/user-attachments/assets/0f385f78-94d9-48b9-a218-660eea07a297)
+
+#### Test of the function to check if point calculation functions work as expected using `unittest` framework:
+![This screenshot shows a unit test that verifies if the point calculation functions work as expected using the `unittest` framework.](https://github.com/user-attachments/assets/e38cf14a-7353-4831-833e-6f99417b9a7b)
+
 
 ## Structure
 
